@@ -24,3 +24,6 @@ REPO=${REPO:-rancher}
 if echo $TAG | grep -q dirty; then
     TAG=dev
 fi
+
+K3S_GITHUB_URL=https://github.com/k3s-io/k3s/releases
+K3S_LATEST_VERSION=$(curl -w '%{url_effective}' -I -sSLk ${K3S_GITHUB_URL}/latest -o /dev/null | sed -e 's|.*/||')
