@@ -3,8 +3,9 @@ ARG TAG
 FROM ${REPO}/k3os-base:${TAG}
 
 ARG ARCH
+ARG K3S_VERSION
 ENV ARCH ${ARCH}
-ENV VERSION v1.23.3+k3s1
+ENV VERSION ${K3S_VERSION}
 ADD https://raw.githubusercontent.com/rancher/k3s/${VERSION}/install.sh /output/install.sh
 ENV INSTALL_K3S_VERSION=${VERSION} \
     INSTALL_K3S_SKIP_START=true \
